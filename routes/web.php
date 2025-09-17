@@ -59,6 +59,11 @@ Route::post('/cookies/accept', [CookieController::class, 'acceptCookies'])->name
 Route::post('/cookies/reject', [CookieController::class, 'rejectCookies'])->name('cookies.reject');
 Route::post('/cookies/settings', [CookieController::class, 'updateCookieSettings'])->name('cookies.update-settings');
 
+// Test cookie route.
+Route::get('/test-cookies', function () {
+    return view('test-cookies');
+});
+
 // ADMIN AUTHENTICATION ROUTES - ADD THIS SECTION
 // Admin Authentication Routes (not protected)
 Route::prefix('admin')->name('admin.')->group(function () {
