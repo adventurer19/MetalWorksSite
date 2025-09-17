@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "🗄️ Resetting database..."
+
+./vendor/bin/sail artisan migrate:fresh --seed
+./vendor/bin/sail artisan cache:clear
+
+echo "✅ Database reset complete!"

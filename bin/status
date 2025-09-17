@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "📊 Laravel Sail Project Status"
+echo "================================"
+
+echo ""
+echo "🐳 Docker Containers:"
+./vendor/bin/sail ps
+
+echo ""
+echo "🌐 Application URL: http://localhost"
+
+echo ""
+echo "📁 Disk Usage:"
+du -sh storage/logs storage/framework/cache storage/framework/sessions storage/framework/views 2>/dev/null || echo "Storage directories not found"
+
+echo ""
+echo "🗄️ Database Status:"
+./vendor/bin/sail artisan migrate:status 2>/dev/null || echo "Database not accessible"
+
+echo ""
+echo "📦 Laravel Version:"
+./vendor/bin/sail artisan --version

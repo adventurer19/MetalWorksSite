@@ -1,0 +1,29 @@
+#!/bin/bash
+
+echo "⚡ Quick Laravel setup..."
+
+# Copy environment file if it doesn't exist
+if [ ! -f .env ]; then
+    cp .env.example .env
+    echo "📝 Created .env file"
+fi
+
+# Start containers
+./vendor/bin/sail up -d
+
+# Install dependencies
+./vendor/bin/sail composer install
+./vendor/bin/sail npm install
+
+# Generate key
+./vendor/bin/sail artisan key:generate
+
+# Run migrations
+./vendor/bin/sail artisan migrate
+
+# Clear caches
+./vendor/bin/sail artisan cache:clear
+./vendor/bin/sail artisan config:clear
+
+echo "✅ Setup complete!"
+echo "🌐 Visit: http://localhost"

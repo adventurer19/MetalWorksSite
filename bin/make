@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Usage: ./bin/make [type] [name]"
+    echo ""
+    echo "Available types:"
+    echo "  controller    - Create a new controller"
+    echo "  model        - Create a new model"
+    echo "  migration    - Create a new migration"
+    echo "  middleware   - Create a new middleware"
+    echo "  request      - Create a new form request"
+    echo "  resource     - Create a new resource"
+    echo "  seeder       - Create a new seeder"
+    echo ""
+    echo "Examples:"
+    echo "  ./bin/make controller UserController"
+    echo "  ./bin/make model Post -m"
+    echo "  ./bin/make migration create_posts_table"
+    exit 1
+fi
+
+TYPE=$1
+NAME=$2
+EXTRA_ARGS=${@:3}
+
+echo "🛠️ Creating $TYPE: $NAME..."
+
+./vendor/bin/sail artisan make:$TYPE $NAME $EXTRA_ARGS
+
+echo "✅ Created $TYPE: $NAME"

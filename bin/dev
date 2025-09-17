@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "🔧 Starting development environment..."
+
+./vendor/bin/sail up -d
+./vendor/bin/sail npm run dev
+
+echo "✅ Development environment ready!"
+echo "🌐 Visit: http://localhost"

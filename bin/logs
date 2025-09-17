@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ "$1" = "-f" ] || [ "$1" = "--follow" ]; then
+    echo "📋 Following Laravel logs (Ctrl+C to exit)..."
+    ./vendor/bin/sail logs -f
+else
+    echo "📋 Showing recent Laravel logs..."
+    ./vendor/bin/sail logs --tail=50
+fi

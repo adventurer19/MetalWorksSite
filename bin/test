@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "🧪 Running tests..."
+
+./vendor/bin/sail artisan test
+
+echo "✅ Tests completed!"

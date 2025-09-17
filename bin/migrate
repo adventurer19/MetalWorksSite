@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "🔄 Running database migrations..."
+
+if [ "$1" = "fresh" ]; then
+    ./vendor/bin/sail artisan migrate:fresh --seed
+elif [ "$1" = "rollback" ]; then
+    ./vendor/bin/sail artisan migrate:rollback
+else
+    ./vendor/bin/sail artisan migrate
+fi
+
+echo "✅ Migration completed!"

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "⏹️ Stopping all services..."
+
+./vendor/bin/sail down
+
+echo "✅ All services stopped!"

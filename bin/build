@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "🏗️ Building for production..."
+
+./vendor/bin/sail npm run build
+./vendor/bin/sail artisan config:cache
+./vendor/bin/sail artisan route:cache
+./vendor/bin/sail artisan view:cache
+
+echo "✅ Production build complete!"
