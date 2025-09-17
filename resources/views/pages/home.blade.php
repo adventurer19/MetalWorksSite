@@ -5,6 +5,9 @@
 
 @section('content')
     <div class="bg-white">
+
+
+{{--        @include('components.hero')--}}
         <!-- Hero Section -->
         <div class="relative bg-gray-900">
             <div class="absolute inset-0 bg-black opacity-50"></div>
