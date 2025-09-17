@@ -36,6 +36,9 @@
 
     <!-- Footer -->
     @include('components.footer')
+
+    <!-- Cookie Banner -->
+    @include('components.cookie-banner')
 </div>
 </body>
 </html>

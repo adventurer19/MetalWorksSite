@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CookieController;
+use App\Http\Controllers\LegalController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -45,6 +47,17 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'bg|en']], functio
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 });
+
+// Legal pages
+Route::get('/privacy-policy', [LegalController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::get('/cookie-policy', [LegalController::class, 'cookiePolicy'])->name('cookie-policy');
+Route::get('/terms-of-service', [LegalController::class, 'termsOfService'])->name('terms-of-service');
+Route::get('/cookie-settings', [CookieController::class, 'cookieSettings'])->name('cookie-settings');
+
+// Cookie consent (outside multilingual group)
+Route::post('/cookies/accept', [CookieController::class, 'acceptCookies'])->name('cookies.accept');
+Route::post('/cookies/reject', [CookieController::class, 'rejectCookies'])->name('cookies.reject');
+Route::post('/cookies/settings', [CookieController::class, 'updateCookieSettings'])->name('cookies.update-settings');
 
 // ADMIN AUTHENTICATION ROUTES - ADD THIS SECTION
 // Admin Authentication Routes (not protected)

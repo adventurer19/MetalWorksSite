@@ -79,6 +79,18 @@
                             @enderror
                         </div>
 
+                        <div class="flex items-start">
+                            <input type="checkbox" id="privacy_consent" name="privacy_consent" required
+                                   class="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <label for="privacy_consent" class="ml-2 text-sm text-gray-700">
+                                {{ __('I agree to the') }}
+                                <a href="{{ route('privacy-policy', app()->getLocale()) }}" target="_blank" class="text-blue-600 hover:underline">
+                                    {{ __('Privacy Policy') }}
+                                </a>
+                                {{ __('and consent to the processing of my personal data.') }} *
+                            </label>
+                        </div>
+
                         <button type="submit"
                                 class="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 font-medium transition-colors">
                             Send Message

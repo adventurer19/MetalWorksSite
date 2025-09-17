@@ -34,7 +34,19 @@
             </div>
         </div>
 
-        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <!-- Legal Links -->
+        <div class="mt-8 pt-8 border-t border-gray-700 text-center text-sm">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="{{ route('privacy-policy', app()->getLocale()) }}" class="text-gray-400 hover:text-white">
+                    {{ __('Privacy Policy') }}
+                </a>
+                <a href="{{ route('cookie-policy', app()->getLocale()) }}" class="text-gray-400 hover:text-white">
+                    {{ __('Cookie Policy') }}
+                </a>
+                <a href="{{ route('cookie-settings', app()->getLocale()) }}" class="text-gray-400 hover:text-white">
+                    {{ __('Cookie Settings') }}
+                </a>
+            </div>
             <p>&copy; {{ date('Y') }} {{ __('site.company_name') }}. All rights reserved.</p>
         </div>
     </div>
