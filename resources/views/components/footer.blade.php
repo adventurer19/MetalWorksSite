@@ -16,10 +16,10 @@
             <div>
                 <h3 class="text-lg font-semibold mb-4">{{ __('nav.services') }}</h3>
                 <ul class="space-y-2 text-gray-300">
-                    <li><a href="#" class="hover:text-white">Laser Cutting</a></li>
-                    <li><a href="#" class="hover:text-white">Welding</a></li>
-                    <li><a href="#" class="hover:text-white">Mechanical Processing</a></li>
-                    <li><a href="#" class="hover:text-white">Quality Control</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Laser Cutting</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Welding</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Mechanical Processing</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Quality Control</a></li>
                 </ul>
             </div>
 
@@ -36,18 +36,25 @@
 
         <!-- Legal Links -->
         <div class="mt-8 pt-8 border-t border-gray-700 text-center text-sm">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="{{ route('privacy-policy', app()->getLocale()) }}" class="text-gray-400 hover:text-white">
+            <div class="flex flex-wrap justify-center gap-6 mb-4">
+                <a href="{{ route('privacy-policy', app()->getLocale()) }}"
+                   class="text-gray-400 hover:text-white transition-colors">
                     {{ __('Privacy Policy') }}
                 </a>
-                <a href="{{ route('cookie-policy', app()->getLocale()) }}" class="text-gray-400 hover:text-white">
+                <a href="{{ route('cookie-policy', app()->getLocale()) }}"
+                   class="text-gray-400 hover:text-white transition-colors">
                     {{ __('Cookie Policy') }}
                 </a>
-                <a href="{{ route('cookie-settings', app()->getLocale()) }}" class="text-gray-400 hover:text-white">
+                <a href="{{ route('cookie-settings', app()->getLocale()) }}"
+                   class="text-gray-400 hover:text-white transition-colors">
                     {{ __('Cookie Settings') }}
                 </a>
+                <a href="{{ route('terms-of-service', app()->getLocale()) }}"
+                   class="text-gray-400 hover:text-white transition-colors">
+                    {{ __('Terms of Service') }}
+                </a>
             </div>
-            <p>&copy; {{ date('Y') }} {{ __('site.company_name') }}. All rights reserved.</p>
+            <p class="text-gray-400">&copy; {{ date('Y') }} {{ __('site.company_name') }}. All rights reserved.</p>
         </div>
     </div>
 </footer>

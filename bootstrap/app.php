@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use App\Http\Middleware\SetLocale;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -11,15 +12,18 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // Add your SetLocale middleware here
-        $middleware->web(append: [
-            \App\Http\Middleware\SetLocale::class,
-        ]);
+        // Register as a route middleware alias
         $middleware->alias([
-            'admin.auth' => \App\Http\Middleware\AdminAuth::class,
+            'locale' => SetLocale::class,
         ]);
+
+        // EITHER apply it to the "web" group...
+        $middleware->appendToGroup('web', SetLocale::class);
+
+        // ...OR make it global (pick one, not both)
+        // $middleware->append(SetLocale::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
-    })->create();
-
+    })
+    ->create();
